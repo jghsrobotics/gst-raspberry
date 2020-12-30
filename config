@@ -1,0 +1,25 @@
+# Remote Public IP Address
+192.168.43.169
+
+# Public IP Address
+192.168.43.242
+
+# Port
+5000
+
+# Protocol (UDP / TCP)
+TCP
+
+## SENDER ONLY ---------------------------
+
+# Height
+800
+
+# Width
+500
+
+# FPS
+50
+
+# Bitrate
+50000000
