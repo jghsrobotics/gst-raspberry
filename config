@@ -9,3 +9,17 @@
 
 # Protocol (UDP / TCP)
 TCP
+
+## SENDER ONLY ---------------------------
+
+# Height
+800
+
+# Width
+500
+
+# FPS
+50
+
+# Bitrate
+50000000

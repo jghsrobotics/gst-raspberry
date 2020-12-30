@@ -1,41 +1,42 @@
 import os
 import sys
+from PythonFileLibrary.src.FileReader import *
 
-UDPcommand = "raspivid -n -t 0 -w {0} -h {1} -fps {2} {3} -b {4} -o - | gst-launch-1.0 -e -vvvv fdsrc ! h264parse ! rtph264pay config-interval=1 pt=96 ! udpsink host={5} port={6}"
-TCPcommand = "raspivid -n -t 0 -w {0} -h {1} -fps {2} {3} -b {4} -o - | gst-launch-1.0 -v fdsrc ! h264parse !  rtph264pay config-interval=1 pt=96 ! gdppay ! tcpserversink host={5} port={6}"
+## Read from configuration file first
+configFile = FileReader('config')
 
-height = 800
-width = 500
-FPS = 50
-bitrate = "50000000"
-extraOptions = "--flush -hf -vf"
+def GetSetting(fileReader : FileReader, setting : str):
+    fileReader.ResetCursor()
 
-ip_address = "192.168.43.169"
-port = "5000"
-TCP = False
+    for line in configFile:
+        line = line.strip()
+        if setting in line:
+            fileReader.MoveCursorDown()
+            line = fileReader.GetCurrentLine().strip()
+            return line
+    
+    return None
 
-for index, item in enumerate(sys.argv):
-    if item == "-T":
-        TCP = True
+remoteIP = GetSetting(configFile,   '# Remote Public IP Address')
+localIP = GetSetting(configFile,    '# Public IP Address')
+port = GetSetting(configFile,       '# Port')
+protocol = GetSetting(configFile,   '# Protocol (UDP / TCP)')
+height = GetSetting(configFile,     '# Height')
+width = GetSetting(configFile,      '# Width')
+FPS = GetSetting(configFile,        '# FPS')
+bitrate = GetSetting(configFile,    '# Bitrate')
 
-    if item == "-U":
-        TCP = False
-
-    if "host=" in item:
-        ip_address = item.split("=")[-1]
-
-    if "port=" in item:
-        port = item.split("=")[-1]
-
+UDPcommand = "raspivid -n -t 0 -w {0} -h {1} -fps {2} --flush -hf -vf -b {3} -o - | gst-launch-1.0 -e -vvvv fdsrc ! h264parse ! rtph264pay config-interval=1 pt=96 ! udpsink host={4} port={5}"
+TCPcommand = "raspivid -n -t 0 -w {0} -h {1} -fps {2} --flush -hf -vf -b {3} -o - | gst-launch-1.0 -v fdsrc ! h264parse !  rtph264pay config-interval=1 pt=96 ! gdppay ! tcpserversink host={4} port={5}"
 
 
-if TCP:
+if protocol == "TCP":
     print("Trying to send through TCP pipe...")
-    os.system(TCPcommand.format(width, height, FPS, extraOptions, bitrate, ip_address, port))
+    os.system(TCPcommand.format(width, height, FPS, bitrate, localIP, port))
 
-else:
+elif protocol == "UDP":
     print("Trying to send through UDP pipe...")
-    os.system(UDPcommand.format(width, height, FPS, extraOptions, bitrate, ip_address, port))
+    os.system(UDPcommand.format(width, height, FPS, bitrate, remoteIP, port))
 
 
 
