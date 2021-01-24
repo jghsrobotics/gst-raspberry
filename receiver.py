@@ -25,7 +25,7 @@ protocol = GetSetting(configFile,   '# Protocol (UDP / TCP)')
 
 ## Run commands. 
 TCPcommand = "gst-launch-1.0 -v tcpclientsrc host={0} port={1} ! gdpdepay ! rtph264depay ! avdec_h264 ! videoconvert ! autovideosink sync=false"
-UDPcommand = "gst-launch-1.0 -e -v udpsrc address={0} port={1} ! application/x-rtp, payload=96 ! rtpjitterbuffer ! rtph264depay ! avdec_h264 ! fpsdisplaysink sync=false text-overlay=false"
+UDPcommand = "gst-launch-1.0 -e -v udpsrc address={0} port={1} ! application/x-rtp, payload=96 ! rtpjitterbuffer ! rtph264depay ! avdec_h264 ! autovideosink sync=false"
 
 if protocol == "TCP":
     print("Trying to receive from TCP pipe...")
