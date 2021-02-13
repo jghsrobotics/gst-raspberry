@@ -32,6 +32,10 @@ The stream can be configured by editing `config` before running either of them. 
 
   # Protocol (UDP / TCP)
   // Use the 'UDP' or 'TCP' protocol by simply typing either one
+  
+  # Receiver OS (Windows / Linux)
+  // Use the 'Windows' or 'Linux' to determine how gst-launcher-1.0 is called. 
+  // For windows, makes sure you use the MSVC 64-bit Development Installer. 
 
   ## SENDER ONLY ---------------------------
 
