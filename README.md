@@ -46,7 +46,7 @@ The stream can be configured by editing `config` before running either of them. 
   // Width of the video feed in pixels
 
   # FPS
-  // FPS of the video feed
+  // FPS of the video feed. Anything greater than 30 FPS is zoomed in
 
   # Bitrate
   // Allowed bitrate in bits. This should be as high as possible for super low-latency, though if you go too high it'll integer overflow. 
