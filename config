@@ -1,8 +1,8 @@
 # Remote Public IP Address
-192.168.1.26
+192.168.1.15
 
 # Public IP Address
-192.168.43.15
+192.168.1.26
 
 # Port
 5000
@@ -16,13 +16,13 @@ Windows
 ## SENDER ONLY ---------------------------
 
 # Height
-800
+400
 
 # Width
-500
+400
 
 # FPS
-50
+30
 
 # Bitrate
 50000000
