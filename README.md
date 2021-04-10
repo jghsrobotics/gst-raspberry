@@ -22,13 +22,13 @@ The stream can be configured by editing `config` before running either of them. 
   ```
   # Remote Public IP Address
   // The IP address of the device you are receiving from / sending to.
-  // The sender should point to the receiver's IP address, and vise versa. 
+  // The sender should point to the receiver's IP address, and vise versa. (str)
 
   # Public IP Address
-  // This machine's public IP address. 
+  // This machine's public IP address. (str)
 
   # Port
-  // Number of the port you're using
+  // Number of the port you're using (uint)
 
   # Protocol (UDP / TCP)
   // Use the 'UDP' or 'TCP' protocol by simply typing either one
@@ -40,21 +40,43 @@ The stream can be configured by editing `config` before running either of them. 
   ## SENDER ONLY ---------------------------
 
   # Height
-  // Height of the video feed in pixels
+  // Height of the video feed in pixels (int)
 
   # Width
-  // Width of the video feed in pixels
+  // Width of the video feed in pixels (int)
 
   # FPS
-  // FPS of the video feed. Anything greater than 30 FPS is zoomed in
+  // FPS of the video feed. Anything greater than 30 FPS is zoomed in (int)
 
   # Bitrate
   // Allowed bitrate in bits. This should be as high as possible for super low-latency, though if you go too high it'll integer overflow. 
-  // On the raspberry pi, the max bitrate is 25 mbs, which would be `20000000` in this setting.
+  // On the raspberry pi, the max bitrate is 25 mbs, which would be `20000000` in this setting. (uint)
   ```
 
-## Making it even faster
-Reducing quality in `sender.py` via the -q argument can reduce lag, as well as just plugging the a router directly to a computer via an ethernet cable.
+## Making it fast
+From experience, messing with these will reduce latency:
+* Lowering resolution via `Height` and `Width`
+* Increasing bitrate
+* Increasing FPS
+* Lowering FPS if bandwidth is exceeded
+* Lowering `-q` manually in `sender.py` (0 - 70)
+* Using UDP instead of TCP
+* Using a 5ghz router or hotspot between the machines
+* Connecting router to Linux machine via ethernet 
+
+
+## Troubleshooting
+
+*Why is the camera zoomed in?*
+
+The Raspberry Pi Camera module will zoom in if the FPS is above around 30. To make the camera zoomed out, set it to an FPS of ~30 or lower
+
+*Why is the video literal seconds behind the video feed?*
+
+If the resolution or FPS is too high, your router will actually buffer frames before sending them out to not go over its bandwidth. Over time, this may result in a "traffic jam" that will cause your video feed to lag far behind.
+
+*More to come*
+
 
 
 
