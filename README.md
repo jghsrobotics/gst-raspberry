@@ -53,6 +53,8 @@ The stream can be configured by editing `config` before running either of them. 
   // On the raspberry pi, the max bitrate is 25 mbs, which would be `20000000` in this setting.
   ```
 
+## Making it even faster
+Reducing quality in `sender.py` via the -q argument can reduce lag, as well as just plugging the a router directly to a computer via an ethernet cable.
 
 
 
