@@ -1,6 +1,6 @@
 import os
 import sys
-from PythonFileLibrary.src.FileReader import *
+from PythonFileLibrary.FileReader import *
 
 ## Read from configuration file first
 configFile = FileReader('config')
