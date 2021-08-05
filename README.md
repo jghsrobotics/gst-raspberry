@@ -80,3 +80,7 @@ If the resolution or FPS is too high, your router will actually buffer frames be
 *Why the feed frozen?*
 
 If the feed is frozen, this usually means that the computer that's running the receiving script has stopped receiving video from the Raspberry Pi due to network issues or the pipeline crashing on the sender side. 
+
+*The pipeline refuses to run even though it just ran a second ago.*
+
+This usually means that gstreamer or raspivid is already running the in the background. In this case, simply run `killall.bash` to kill those background processes.
