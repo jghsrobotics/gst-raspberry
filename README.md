@@ -1,4 +1,4 @@
-# RaspberryPiCam
+# gst-raspberry
 
 These are python scripts dedicated to providing ultra low-latency streaming of a Raspberry Pi Camera Module across a LAN. 
 
