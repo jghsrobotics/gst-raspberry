@@ -71,20 +71,12 @@ From experience, messing with these will reduce latency:
 
 *Why is the camera zoomed in?*
 
-The Raspberry Pi Camera module will zoom in if the FPS is above around 30. To make the camera zoomed out, set it to an FPS of ~30 or lower
+The Raspberry Pi Camera module will zoom in if the FPS is above around 30. To make the camera zoomed out, set it to an FPS of ~30 or lower.
 
-*Why is the video literal seconds behind the video feed?*
+*Why is the video seconds behind the video feed?*
 
 If the resolution or FPS is too high, your router will actually buffer frames before sending them out to not go over its bandwidth. Over time, this may result in a "traffic jam" that will cause your video feed to lag far behind.
 
-*More to come*
+*Why the feed frozen?*
 
-
-
-
-
-
-
-
-
-
+If the feed is frozen, this usually means that the computer that's running the receiving script has stopped receiving video from the Raspberry Pi due to network issues or the pipeline crashing on the sender side. 
