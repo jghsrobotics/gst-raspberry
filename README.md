@@ -61,7 +61,7 @@ From experience, messing with these will reduce latency:
 * Increasing bitrate
 * Increasing FPS
 * Lowering FPS if bandwidth is exceeded
-* Lowering `-q` manually in `sender.py` (0 - 70)
+* Increasing the `Quality` setting in `config` (counterintuitive, I know)
 * Using UDP instead of TCP
 * Using a 5ghz router or hotspot between the machines
 * Connecting router to Linux machine via ethernet 
