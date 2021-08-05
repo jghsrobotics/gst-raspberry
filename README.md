@@ -5,6 +5,8 @@ These are python scripts dedicated to providing ultra low-latency streaming of a
 ## Prerequisites
 * [Gstreamer](https://gstreamer.freedesktop.org/documentation/installing/index.html?gi-language=c) - You will need to install the command line version of GStreamer on both sides for this to work, as this simply runs bash commands.
 
+* Python 3. Once installed, run `python3 -m pip install -r requirements.txt`
+
 * Any Linux Computer (This might work with Windows or mac if `gst-launch-1.0` is accessible from the command line; See `receiver.py`)
 
 * Raspberry Pi 4 (Lower versions of Pi should have a WiFi card)
