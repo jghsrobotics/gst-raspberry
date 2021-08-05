@@ -1,8 +1,8 @@
 # Remote Public IP Address
-192.168.1.15
+192.168.1.228
 
 # Public IP Address
-192.168.1.26
+192.168.1.189
 
 # Port
 5000
@@ -11,7 +11,7 @@
 UDP
 
 # Receiver OS (Windows / Linux)
-Windows
+Linux
 
 ## SENDER ONLY ---------------------------
 
@@ -26,3 +26,6 @@ Windows
 
 # Bitrate
 50000000
+
+# Quality
+80
