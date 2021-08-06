@@ -15,6 +15,11 @@ These are python scripts dedicated to providing ultra low-latency streaming of a
 
 * Dedicated Router - The key to ultra low-latency streaming is bandwidth, so having a dedicated LAN via a internet-less router is crucial. I use personally use a 5Ghz hotspot.
 
+When connecting the camera module to the Raspberry Pi, make sure that the side WITHOUT the blue is facing the white, as so:
+
+![portconnection](images/portconnection.jpg)
+
+
 ## Running
 Running these scripts is super simple. First, make sure the Linux Computer and Raspberry Pi are connected to the same LAN. Then on the Raspberry Pi, run `sender.py` via Python 3+, and on the Linux Computer, run `receiver.py`. Personally, I run these commands via the command line, with the Raspberry Pi being controlled via a SSH tunnel.
 
