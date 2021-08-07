@@ -82,7 +82,7 @@ The Raspberry Pi Camera module will zoom in if the FPS is above around 30. To ma
 
 If the resolution or FPS is too high, your router will actually buffer frames before sending them out to not go over its bandwidth. Over time, this may result in a "traffic jam" that will cause your video feed to lag far behind.
 
-*Why the feed frozen?*
+*Why is the feed frozen?*
 
 If the feed is frozen, this usually means that the computer that's running the receiving script has stopped receiving video from the Raspberry Pi due to network issues or the pipeline crashing on the sender side. 
 
