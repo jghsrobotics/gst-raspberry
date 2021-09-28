@@ -1,5 +1,6 @@
 import os
 import sys
+import socket
 from PythonFileLibrary.FileReader import *
 
 ## Read from configuration file first
@@ -17,8 +18,18 @@ def GetSetting(fileReader : FileReader, setting : str):
     
     return None
 
+def getPrivateIP():
+    s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+    try:
+        s.connect(("10.10.0.0", 1))
+        return s.getsockname()[0]
+    except:
+        pass
+
+    return None
+
+localIP = getPrivateIP()
 remoteIP = GetSetting(configFile,   '# Remote Public IP Address')
-localIP = GetSetting(configFile,    '# Public IP Address')
 port = GetSetting(configFile,       '# Port')
 protocol = GetSetting(configFile,   '# Protocol (UDP / TCP)')
 height = GetSetting(configFile,     '# Height')
