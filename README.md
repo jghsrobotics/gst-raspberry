@@ -29,11 +29,8 @@ The stream can be configured by editing `config` before running either of them. 
   ```
   # Remote Public IP Address
   // The IP address of the device you are receiving from / sending to.
-  // The sender should point to the receiver's IP address, and vise versa. (str)
-
-  # Public IP Address
-  // This machine's public IP address. (str)
-
+  // The sender should point to the receiver's IP address, and vise versa.
+  
   # Port
   // Number of the port you're using (uint)
 
